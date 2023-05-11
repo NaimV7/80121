@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Me</title>
+    <style>
+      body {
+        background-color: #f7ede2;
+        background-image: url("images/pexels-pixabay-235985.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #080808;
+        font-family: Georgia, sans-serif;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+      table {
+        margin: 0 auto;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #cccccc;
+      }
+      th {
+        background-color: #0a65db;
+        color: white;
+      }
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        animation: shake 0.5s ease-in-out 1s infinite;
+      }
+      @keyframes shake {
+        0% {
+          transform: translate(0);
+        }
+        25% {
+          transform: translate(10px, 0);
+        }
+        50% {
+          transform: translate(0, 10px);
+        }
+        75% {
+          transform: translate(-10px, 0);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>About Me</h1>
+
+    <img src="images/passport photo.jpeg" alt="A photo of me" />
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>Mohammad Naim Bin Johari</td>
+      </tr>
+      <tr>
+        <th>Age</th>
+        <td>21</td>
+      </tr>
+      <tr>
+        <th>Race</th>
+        <td>Melayu</td>
+      </tr>
+      <tr>
+        <th>Birth Place</th>
+        <td>Kuching Sarawak</td>
+      </tr>
+    </table>
+
+    <h2 onclick="toggleFunFacts()">Fun Facts &#x25BC;</h2>
+
+    <ul id="fun-facts-list" style="display: none">
+      <li>I'm a huge fan of Bayern Munich</li>
+      <li>Favourite food is Laksa Sarawak</li>
+      <li>I'm an audiophile</li>
+    </ul>
+
+    <h2 onclick="toggleAboutMe()">About Me &#x25BC;</h2>
+
+    <div id="about-me" style="display: none">
+      <p>
+        Hi, I'm Naim! I grew up in Kuching, Sarawak and now went to UNIMAS for
+        my bachelor degree in Computational Science. In my free time, I love to
+        listening to music, exercising, and play video games with my friends.
+      </p>
+    </div>
+
+    <h2 onclick="toggleMyHobbies()">My hobbies &#x25BC;</h2>
+
+    <div id="my-hobbies" style="display: none">
+      <p>
+        My hobby is listening to music. I find it quite interesting because
+        music is incredibly diverse and the are a lot of genres and styles to
+        choose from. Whether you're listening to classical music,rock, pop,
+        hip-hop, or something else entirely, there is always something new and
+        interesting to discover. Besides, it has the ability to envoke emotions
+        and memory within us. Last but not least, it can bring people together
+        an even create a community.
+      </p>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px">
+      <p id="date"></p>
+      <button id="facebook-btn">Facebook</button>
+      <button id="instagram-btn">Instagram</button>
+    </div>
+
+    <script>
+      function toggleFunFacts() {
+        const funFactsList = document.getElementById("fun-facts-list");
+        if (funFactsList.style.display === "none") {
+          funFactsList.style.display = "block";
+        } else {
+          funFactsList.style.display = "none";
+        }
+      }
+
+      function toggleAboutMe() {
+        const aboutMe = document.getElementById("about-me");
+        if (aboutMe.style.display === "none") {
+          aboutMe.style.display = "block";
+        } else {
+          aboutMe.style.display = "none";
+        }
+      }
+
+      function toggleMyHobbies() {
+        const myHobbies = document.getElementById("my-hobbies");
+        if (myHobbies.style.display === "none") {
+          myHobbies.style.display = "block";
+        } else {
+          myHobbies.style.display = "none";
+        }
+      }
+
+      function updateTime() {
+        const today = new Date();
+        const date = `${today.getDate()}/${
+          today.getMonth() + 1
+        }/${today.getFullYear()}`;
+        const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+        const dateTimeString = `Today's Date: ${date} | Current Time: ${time}`;
+        const dateElement = document.querySelector("#date");
+        dateElement.innerHTML = dateTimeString;
+      }
+
+      setInterval(updateTime, 1000);
+
+      const facebookBtn = document.querySelector("#facebook-btn");
+      facebookBtn.addEventListener("click", () => {
+        window.open("https://www.facebook.com/profile.php?id=100009770315873");
+      });
+
+      const instagramBtn = document.querySelector("#instagram-btn");
+      instagramBtn.addEventListener("click", () => {
+        window.open("https://www.instagram.com/naimv_7/");
+      });
+    </script>
+  </body>
+</html>
